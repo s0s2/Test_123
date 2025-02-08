@@ -1,5 +1,7 @@
 import telebot
 import logging
+from reply_david import replyd
+from telebot import types
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
@@ -25,5 +27,9 @@ def new_link(message):
 @bot.message_handler(commands=['send'])
 def send(message):
     bot.send_message(message.chat.id, "Рассылка успешно отправлена.")
+
+@bot.message_handler(commands=['replyd'])
+def repla(message):
+    replyd(message, bot, types)
 
 bot.infinity_polling()
