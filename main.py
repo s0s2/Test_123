@@ -1,5 +1,10 @@
 import telebot
+
 import logging
+from inline_Rom import f
+from inline_Rom import s
+
+from tex_Belyak import Belyak
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
@@ -29,6 +34,23 @@ def new_link(message):
 def send(message):
     bot.send_message(message.chat.id, "Рассылка успешно отправлена.")
 
+
+
+@bot.message_handler(commands=['s'])
+def s(message):
+    bot.send_message(message.chat.id, "Нажми плз ♡")
+
+@bot.message_handler(commands=['f'])
+def f(message):
+    bot.send_message(message.chat.id, "Оцени плз ♡")
+
+@bot.message_handler(commands=['g'])
+def g(message):
+    bot.send_message(message.chat.id, "Тренируйся плз ♡")
+
+@bot.message_handler(commands=['Belyak'])
+def bel(message):
+    Belyak(message, bot)
 
 
 bot.infinity_polling()
