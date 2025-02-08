@@ -1,5 +1,6 @@
 import telebot
 import logging
+from random import random_karpov
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
@@ -25,5 +26,13 @@ def new_link(message):
 @bot.message_handler(commands=['send'])
 def send(message):
     bot.send_message(message.chat.id, "Рассылка успешно отправлена.")
+
+
+
+@bot.message_handler(commands=['random'])
+def send(message):
+    random_karpov(message, bot, types)
+
+
 
 bot.infinity_polling()
