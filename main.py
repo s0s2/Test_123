@@ -4,14 +4,14 @@ import logging
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
 bot = telebot.TeleBot("7512750009:AAHYQt5qndrJLjeUEHcl2IRwwDWakmgcm-A", parse_mode=None)
-admin = [2119217311]
+admin = []
 visitor = []
 
 @bot.message_handler(commands=['start', 'help'])
 def handle_start_help(message):
     if message.chat.id == admin:
         bot.send_message(message.chat.id, "/new_text - создать новое сообщение для рассылки \n"
-                                          "/new_link - создать ссылку для рассылки"
+                                          "/new_link - создать ссылку для рассылки \n"
                                           "/send - для отправки рассылки")
 
 @bot.message_handler(commands=['new_text'])
