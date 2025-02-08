@@ -1,5 +1,7 @@
 import telebot
 import logging
+from inline_Rom import f
+from inline_Rom import s
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
@@ -25,5 +27,17 @@ def new_link(message):
 @bot.message_handler(commands=['send'])
 def send(message):
     bot.send_message(message.chat.id, "Рассылка успешно отправлена.")
+
+@bot.message_handler(commands=['s'])
+def s(message):
+    bot.send_message(message.chat.id, "Нажми плз ♡")
+
+@bot.message_handler(commands=['f'])
+def f(message):
+    bot.send_message(message.chat.id, "Оцени плз ♡")
+
+@bot.message_handler(commands=['g'])
+def g(message):
+    bot.send_message(message.chat.id, "Тренируйся плз ♡")
 
 bot.infinity_polling()
